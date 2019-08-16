@@ -33,7 +33,7 @@ describe('Popover', () => {
       done()
     })
   })
-  xit('可以设置 trigger', (done) => {
+  it('可以设置 trigger', (done) => {
     Vue.component('g-popover', Popover)
     const div = document.createElement('div')
     document.body.appendChild(div)
@@ -50,13 +50,13 @@ describe('Popover', () => {
     })
     setTimeout(() => {
       let event = new Event('mouseenter');
-      vm.$el.dispatchEvent(event)
+      vm.$refs.a.$refs.popover.dispatchEvent(event)
       vm.$nextTick(() => {
         const {contentWrapper} = vm.$refs.a.$refs
         expect(contentWrapper).to.exist
         done()
       })
-    }, 200)
+    })
 
   })
 
